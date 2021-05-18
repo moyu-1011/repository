@@ -1,6 +1,7 @@
 package com.example.slf4j;
 
 import com.example.slf4j.controller.MathController;
+import com.example.slf4j.domain.User;
 import com.example.slf4j.service.BaseMathService;
 import com.example.slf4j.service.Slf4jService;
 import org.junit.Assert;
@@ -16,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -32,6 +34,8 @@ class Slf4jApplicationTests {
     private Slf4jService slf4jService;
     @Autowired
     private BaseMathService mathService;
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Mock
     private BaseMathService mockMathService;
@@ -106,7 +110,6 @@ class Slf4jApplicationTests {
 //        Assert.assertEquals(0, mockMathService.add(2,3));
 
 
-
         LOGGER.info("success");
     }
 
@@ -124,6 +127,11 @@ class Slf4jApplicationTests {
         Assertions.assertEquals(6, mathService.add(2, 4));
         Assertions.assertEquals(4, mathService.plus(2, 2));
         LOGGER.info("success");
+    }
+
+    @Test
+    void redis() {
+        redisTemplate.opsForValue().set("userInfo", new User("moyu1011", 21, "CQ"));
     }
 
 }
