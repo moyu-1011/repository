@@ -131,7 +131,8 @@ class Slf4jApplicationTests {
 
     @Test
     void redis() {
-        redisTemplate.opsForValue().set("userInfo", new User("moyu1011", 21, "CQ"));
+//        redisTemplate.opsForValue().set("userInfo", new User("moyu1011", 21, "CQ"));
+        redisTemplate.opsForValue().set("integer", 0);
     }
 
 }

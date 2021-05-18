@@ -9,7 +9,7 @@ public class JenkinsController {
     @GetMapping("/jenkins")
     public String jenkins(){
         System.out.println("Hello Jenkins!");
-        return "Hello Jenkins!Version=2";
+        return "Hello Jenkins!Version=3";
         
         
     }
