@@ -8,7 +8,7 @@ public class JenkinsController {
 
     @GetMapping("/jenkins")
     public String jenkins(){
-        return "Counter Web App : counter = 1 ";
+        return "Counter Web App : counter = 2 ";
     }
 
 }
