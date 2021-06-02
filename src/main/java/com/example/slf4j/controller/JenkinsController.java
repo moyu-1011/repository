@@ -8,10 +8,8 @@ public class JenkinsController {
 
     @GetMapping("/jenkins")
     public String jenkins(){
-        System.out.println("Hello Jenkins!");
-        return "Hello Jenkins!Version=3";
-        
-        
+        return "Counter Web App \n
+		counter = 1 ";
     }
 
 }
